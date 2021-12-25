@@ -49,7 +49,6 @@ const FriendList = () => {
                 <ImageNameWrapper>
                     <MoreButton>Load More</MoreButton>
                 </ImageNameWrapper>
-                
             </Wrapper>
         </Container>
     )

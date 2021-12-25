@@ -7,10 +7,11 @@ const Container = styled.div`
 `
 const Left = styled.div`
     flex: 1;
+    padding-left: 20px;
 `
 // const Container = styled.div``
 const Center = styled.div`
-    flex: 1;
+    flex: 2;
 `
 // const Container = styled.div``
 const Right = styled.div`

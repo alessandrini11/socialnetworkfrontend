@@ -1,11 +1,17 @@
 import styled from "styled-components"
-const Container = styled.div``
+import NewPost from "./NewPost"
+import PostsList from "./PostsList"
+
+const Container = styled.div`
+    margin-top: 20px;
+`
 const Wrapper = styled.div``
 const TimeLine = () => {
     return (
         <Container>
             <Wrapper>
-                
+                <NewPost></NewPost>
+                <PostsList></PostsList>
             </Wrapper>
         </Container>
     )

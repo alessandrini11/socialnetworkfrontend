@@ -2,12 +2,14 @@ import Navbar from "../components/Navbar"
 import styled from "styled-components"
 import Menu from "../components/Menu"
 import TimeLine from "../components/TimeLine"
+import SideBar from "../components/SideBar"
+
 const Container = styled.div`
     display: flex;
 `
 const Left = styled.div`
     flex: 1;
-    padding-left: 20px;
+    padding: 0 20px;
 `
 // const Container = styled.div``
 const Center = styled.div`
@@ -16,6 +18,7 @@ const Center = styled.div`
 // const Container = styled.div``
 const Right = styled.div`
     flex: 1;
+    padding: 0 20px
 `
 const Home = () => {
     return (
@@ -29,7 +32,7 @@ const Home = () => {
                     <TimeLine></TimeLine>
                 </Center>
                 <Right>
-
+                    <SideBar></SideBar>
                 </Right>
             </Container>
         </div>

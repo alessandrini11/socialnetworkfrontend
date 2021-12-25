@@ -34,7 +34,7 @@ const Text = styled.span`
 const ImageContainer = styled.div`
     margin: 10px 0;
     position: relative;
-    height: 500px;
+    padding-top: 75%;
 `
 const PostImage = styled.img`
     position: absolute;
@@ -44,7 +44,6 @@ const PostImage = styled.img`
     bottom:0;
     width: 100%;
     height: 100%;
-    ojbject-fit: cover;
 `
 const PostFooter = styled.div`
     display: flex;

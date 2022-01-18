@@ -4,8 +4,11 @@ import { Search, Person, Message, Notifications } from '@material-ui/icons'
 
 const Container = styled.div`
     height: 60px;
-    background-color: blue;
+    background-color: #1877f2;
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 `
 const Wrapper = styled.div`
     padding: 0 20px;
@@ -61,6 +64,7 @@ const Image = styled.img`
     height: 35px;
     width: 35px;
     border-radius: 50%;
+    object-fit: cover;
 `;
 const RightWrapper = styled.div`
     width: 50%;
@@ -76,7 +80,7 @@ const Navbar = () => {
                 </Left>
                 <Center>
                     <SearchWrapper>
-                        <Search style={{color: "gray"}}></Search>
+                        <Search style={{color: "gray",fontSize:"20px"}}></Search>
                         <SearchInput placeholder="search for a post or a friend"></SearchInput>
                     </SearchWrapper>
                     <NavText>Homepage</NavText>

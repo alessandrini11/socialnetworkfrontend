@@ -18,6 +18,7 @@ const Divider = styled.div`
     margin: 0 auto;
     height: 1px;
     background: lightgray;
+
 `
 const Menu = () => {
     return (

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { MoreVert, Favorite } from "@material-ui/icons"
 import Card from "./Card"
-
+import { useState } from "react"
 const Wrapper = styled.div`
     padding: 20px 10px;
 `
@@ -43,7 +43,7 @@ const PostImage = styled.img`
     right:0;
     bottom:0;
     width: 100%;
-    height: 100%;
+    max-height: 100%;
 `
 const PostFooter = styled.div`
     display: flex;
@@ -56,6 +56,13 @@ const PostReactWrapper = styled.div`
 `
 
 const Post = () => {
+    const [like,setLike] = useState(1)
+    const [isLiked,setIsLiked] = useState(false)
+
+    const likeHandler = () => {
+        setLike(isLiked ? like + 1 : like - 1)
+        setIsLiked(!isLiked)
+    }
     return (
         <Card>
             <Wrapper>
@@ -73,11 +80,11 @@ const Post = () => {
                         <PostImage src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></PostImage>
                     </ImageContainer>
                 </PostContent>
-                <PostFooter>
+                <PostFooter> 
                     <PostReactWrapper>
-                        <Favorite style={{color: 'crimson',fontSize: '20px', marginRight: '5px'}}></Favorite>
+                        <Favorite onClick={likeHandler} style={{color: 'crimson',fontSize: '20px', marginRight: '5px'}}></Favorite>
                         <Text>
-                            32
+                            {like}
                         </Text>
                     </PostReactWrapper>
                     <Text>9 comments</Text>

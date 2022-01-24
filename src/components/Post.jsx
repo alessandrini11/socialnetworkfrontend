@@ -1,7 +1,9 @@
 import styled from "styled-components"
 import { MoreVert, Favorite } from "@material-ui/icons"
 import Card from "./Card"
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { format } from "timeago.js"
+import axios from 'axios'
 const Wrapper = styled.div`
     padding: 20px 10px;
 `
@@ -55,29 +57,39 @@ const PostReactWrapper = styled.div`
     align-items: center;
 `
 
-const Post = () => {
-    const [like,setLike] = useState(1)
+const Post = ({post}) => {
+    const [like,setLike] = useState(post.likes.length)
+    const [user, setUser] = useState({})
     const [isLiked,setIsLiked] = useState(false)
+    const PF = process.env.REACT_APP_PUBLIC_fOLDER
 
+    useEffect(()=>{
+        const fetchUser = async () => {
+            const response = await axios.get('user/'+post.userId)
+            setUser(response.data.user)
+        }
+        fetchUser()
+    },[post.userId])
     const likeHandler = () => {
         setLike(isLiked ? like + 1 : like - 1)
         setIsLiked(!isLiked)
     }
+    
     return (
         <Card>
             <Wrapper>
                 <PostHeader>
                     <ImageNameWrapper>
-                        <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
-                        <Name>Alexandre Lionel</Name>
-                        <Time>5 min ago</Time>
+                        <Image src={post.image}></Image>
+                        <Name>{user.username}</Name>
+                        <Time>{format(post.createdAt)}</Time>
                     </ImageNameWrapper>
                     <MoreVert></MoreVert>
                 </PostHeader>
                 <PostContent>
-                    <Text>This is a fake post from the front-end</Text>
+                    <Text>{post.description}</Text>
                     <ImageContainer>
-                        <PostImage src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></PostImage>
+                        <PostImage src={post.image}></PostImage>
                     </ImageContainer>
                 </PostContent>
                 <PostFooter> 

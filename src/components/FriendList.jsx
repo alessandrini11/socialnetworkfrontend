@@ -23,29 +23,15 @@ const MoreButton = styled.span`
     font-size: 12px;
 `
 const FriendList = () => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
     return (
         <Container>
             <Wrapper>
                 <ImageNameWrapper>
-                    <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
+                    <Image src={PF+'1.jpeg'}></Image>
                     <Name>Alex Schuame</Name>
                 </ImageNameWrapper>
-                <ImageNameWrapper>
-                    <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
-                    <Name>Alex Schuame</Name>
-                </ImageNameWrapper>
-                <ImageNameWrapper>
-                    <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
-                    <Name>Alex Schuame</Name>
-                </ImageNameWrapper>
-                <ImageNameWrapper>
-                    <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
-                    <Name>Alex Schuame</Name>
-                </ImageNameWrapper>
-                <ImageNameWrapper>
-                    <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
-                    <Name>Alex Schuame</Name>
-                </ImageNameWrapper>
+                
                 <ImageNameWrapper>
                     <MoreButton>Load More</MoreButton>
                 </ImageNameWrapper>

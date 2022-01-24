@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Search, Person, Message, Notifications } from '@material-ui/icons'
-
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
     height: 60px;
@@ -76,7 +76,9 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <Logo>ENSPD</Logo>
+                    <Logo>
+                        <Link to='/' style={{textDecoration:'none',color: 'white'}}>ENSPD</Link>
+                    </Logo>
                 </Left>
                 <Center>
                     <SearchWrapper>
@@ -89,8 +91,8 @@ const Navbar = () => {
                 <Right>
                     <RightWrapper>
                         <Person ></Person>
-                        <Message badgeContent={1} ></Message>
-                        <Notifications badgeContent={3}></Notifications>
+                        <Message ></Message>
+                        <Notifications></Notifications>
                     </RightWrapper>
                     <Image src="https://images.unsplash.com/photo-1640360937402-edd310a8f5f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80"></Image>
                 </Right>

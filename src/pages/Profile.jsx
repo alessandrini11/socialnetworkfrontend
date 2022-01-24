@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import Menu from '../components/Menu'
 import TimeLine from '../components/TimeLine'
 import ProfileSideBar from '../components/ProfileSideBar'
-
+import axios from 'axios'
 const Container = styled.div`
     display:flex;
 `
@@ -80,6 +80,15 @@ const Intro = styled.p`
 `
 
 const Profile = () => {
+    const [user,setUser] = useState({})
+    
+    useEffect(()=>{
+        const fetchUser = async () => {
+            const response = await axios.get('/user?username=liam')
+            setUser(response.data.user)
+        }
+        fetchUser()
+    },[])
     return (
         <div>
             <Navbar></Navbar>
@@ -94,13 +103,13 @@ const Profile = () => {
                         </CoverImageContainer>
                         <USerProfileImageInfos>
                             <ProfileImageContainer>
-                                <ProfileImage src='https://images.unsplash.com/photo-1640387346493-50224558f585?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=700&q=60'></ProfileImage>
+                                <ProfileImage src={user.profilePicture}></ProfileImage>
                             </ProfileImageContainer>
                             <UserNameIntro>
                                 <UserName>
-                                    Mehdi Benatia
+                                    {user.username}
                                 </UserName>
-                                <Intro>I am et professional football of FC Bayern originated from Morocco</Intro>
+                                <Intro>{user.description}</Intro>
                             </UserNameIntro>
                         </USerProfileImageInfos>
                     </Header> 
@@ -109,7 +118,7 @@ const Profile = () => {
                             <TimeLine></TimeLine>
                         </TimeLineCenter>
                         <ProfileSideCenter>
-                            <ProfileSideBar></ProfileSideBar>
+                            <ProfileSideBar user={user}></ProfileSideBar>
                         </ProfileSideCenter>
                         
                     </InnerContainer>

@@ -16,14 +16,14 @@ const InfosContent = styled.div``
 
 
 
-const ProfileSideBar = () => {
+const ProfileSideBar = ({user}) => {
     return (
         <Container>
             <Wrapper>
                 <Infos>
                     <InfosTitle>User Informations</InfosTitle>
                     <InfosContent>
-                        <InfosItem>City: Douala</InfosItem>
+                        <InfosItem>City: </InfosItem>
                         <InfosItem>From: Cameroon</InfosItem>
                         <InfosItem>Relationship: Married</InfosItem>
                     </InfosContent>

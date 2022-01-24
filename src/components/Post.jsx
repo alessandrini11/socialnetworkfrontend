@@ -4,6 +4,8 @@ import Card from "./Card"
 import { useState,useEffect } from "react"
 import { format } from "timeago.js"
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+
 const Wrapper = styled.div`
     padding: 20px 10px;
 `
@@ -70,6 +72,7 @@ const Post = ({post}) => {
         }
         fetchUser()
     },[post.userId])
+
     const likeHandler = () => {
         setLike(isLiked ? like + 1 : like - 1)
         setIsLiked(!isLiked)
@@ -80,7 +83,10 @@ const Post = ({post}) => {
             <Wrapper>
                 <PostHeader>
                     <ImageNameWrapper>
-                        <Image src={post.image}></Image>
+                        <Link to={'/profile/'+user.username}>
+                            <Image src={post.image}></Image>
+                        </Link>
+                        
                         <Name>{user.username}</Name>
                         <Time>{format(post.createdAt)}</Time>
                     </ImageNameWrapper>
